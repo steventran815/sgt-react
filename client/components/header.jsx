@@ -4,7 +4,13 @@ export default class Header extends React.Component {
 
   render() {
     return (
-      <h1 className="title">Student Grade Table</h1>
+      <div>
+        <h1 className="title">Student Grade Table</h1>
+        <div className='averageGradeDiv'>
+          <h2 className="averageGradeTitle">Average Grade &nbsp;</h2>
+          <span className="averageGradeBadge badge badge-secondary"> {this.props.average}</span>
+        </div>
+      </div>
     );
   }
 }

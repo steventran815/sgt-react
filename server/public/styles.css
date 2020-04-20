@@ -6,6 +6,17 @@
   font-size:1.75rem;
   color:#3c3c3c;
   font-family:sans-serif;
+  float:left;
+}
+
+.averageGradeBadge, .averageGradeTitle{
+  display:inline-block
+}
+.badge{
+  font-size:1.5rem;
+}
+.averageGradeDiv{
+   float:right;
 }
 thead{
   color:white;
