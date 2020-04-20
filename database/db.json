@@ -2,21 +2,21 @@
   "grades": [
     {
       "id": 5,
-      "name": "Kyle Simpson",
-      "course": "JavaScript",
+      "name": "Tim Berners-Lee",
+      "course": "Web Development",
       "grade": 100
     },
     {
       "id": 12,
-      "name": "Brendan Eich",
-      "course": "JavaScript",
+      "name": "Scott Bowler",
+      "course": "Web Development",
       "grade": 100
     },
     {
       "id": 32,
-      "name": "Douglas Crockford",
-      "course": "JavaScript",
-      "grade": 100
+      "name": "Tim Davis",
+      "course": "Web Development",
+      "grade": 50
     }
   ]
 }
