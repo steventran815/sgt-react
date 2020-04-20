@@ -6,6 +6,7 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.getAverageGrade = this.getAverageGrade.bind(this);
+    this.addGrade = this.addGrade.bind(this);
     this.state = {
       grades: []
     };
@@ -21,8 +22,23 @@ export default class App extends React.Component {
       .catch(err => console.error(err));
   }
 
-  getAverageGrade() {
+  addGrade(newGrade) {
+    fetch('./api/grades', {
+      method: 'Post',
+      headers: {
+        'Content-Type': 'application/json; charset=utl-8'
+      }
+    })
+      .then(res => res.json())
+      .then(result => {
+        const newGrades = this.state.grades.concat(result);
+        this.setState({ grades: newGrades });
+        // console.log('TESTING FROM FORM');
+      })
+      .catch(err => console.error(err));
+  }
 
+  getAverageGrade() {
     let sumOfGrades = 0;
     if (this.state.grades.length > 0) {
       for (let i = 0; i < this.state.grades.length; i++) {
@@ -59,7 +75,7 @@ export default class App extends React.Component {
               <GradeTable grades={this.state.grades}/>
             </div>
             <div className="col-md-4">
-              <GradeForm/>
+              <GradeForm addGrade={this.addGrade}/>
             </div>
           </div>
         </div>
