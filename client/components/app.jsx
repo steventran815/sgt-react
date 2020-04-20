@@ -24,16 +24,16 @@ export default class App extends React.Component {
 
   addGrade(newGrade) {
     fetch('./api/grades', {
-      method: 'Post',
+      method: 'POST',
       headers: {
-        'Content-Type': 'application/json; charset=utl-8'
-      }
+        'Content-Type': 'application/json; charset=utf-8'
+      },
+      body: JSON.stringify(newGrade)
     })
       .then(res => res.json())
       .then(result => {
         const newGrades = this.state.grades.concat(result);
         this.setState({ grades: newGrades });
-        // console.log('TESTING FROM FORM');
       })
       .catch(err => console.error(err));
   }
