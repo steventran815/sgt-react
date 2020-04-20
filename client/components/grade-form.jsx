@@ -23,9 +23,10 @@ export default class GradeForm extends React.Component {
             <i className="fa fa-graduation-cap formIcon"></i>
           </div><input type="text" className="form-control" name="name" id="studentGradeInput" placeholder="Student Grade" />
         </div>
-        <button type="submit" name="add" id="addButton" className="btn btn-success">Add</button>
-
-        <button type="reset" name="cancel" id="cancelButton" className="btn btn-outline-secondary">Cancel</button>
+        <div className="button-group">
+          <button type="submit" name="add" id="addButton" className="btn btn-success addButton">Add</button>
+          <button type="reset" name="cancel" id="cancelButton" className="btn btn-outline-secondary">Cancel</button>
+        </div>
       </form>
     );
   }

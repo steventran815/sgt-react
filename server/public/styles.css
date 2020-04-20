@@ -65,23 +65,33 @@ input{
 
 .input-group{
   width:100%;
- margin-bottom:15px !important;
-border-radius:5px;
-  height:35px;	  /* height:35px; */
+  margin-bottom:15px;
+  border-radius:5px;
+  height:35px;
 }
 
-
+.formIcon{
+  height:35px;
+}
 
 .iconAndBackground{
   color:#4c4c4c;
-
-
   display:flex;
   justify-content:center;
   align-items:center;
   padding:0px 10px;
 }
 
-.fa-graduation-cap{
-  width:16px;
+.fa-graduation-cap, .fa-user, .fa-list-alt{
+  width:20px;
+  padding-top:10px;
+}
+
+.button-group{
+  float:right;
+}
+
+.addButton{
+  margin-right:15px;
+  padding:6px 20px;
 }
