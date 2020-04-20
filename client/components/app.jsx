@@ -1,7 +1,7 @@
 import React from 'react';
 import GradeTable from './grade-table';
 import Header from './header';
-
+import GradeForm from './grade-form';
 export default class App extends React.Component {
   constructor(props) {
     super(props);
@@ -51,8 +51,17 @@ export default class App extends React.Component {
     return (
       <div>
         <div className="container extraPadding">
+
           <Header average={this.getAverageGrade()} />
-          <GradeTable grades={this.state.grades}/>
+
+          <div className="row">
+            <div className="col-md-8">
+              <GradeTable grades={this.state.grades}/>
+            </div>
+            <div className="col-md-4">
+              <GradeForm/>
+            </div>
+          </div>
         </div>
       </div>
     );

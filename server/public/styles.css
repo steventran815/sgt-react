@@ -8,15 +8,28 @@
   font-family:sans-serif;
   float:left;
 }
-
+.tableHeader{
+  position:relative;
+  width:100%;
+}
+.averageGradeDiv{
+  right:0%;
+  float:right;
+}
 .averageGradeBadge, .averageGradeTitle{
   display:inline-block
+}
+.averageGradeTitle{
+  font-size:1.5rem;
 }
 .badge{
   font-size:1.5rem;
 }
+.tableHeader{
+  position:relative;
+}
 .averageGradeDiv{
-   float:right;
+  float:right;
 }
 thead{
   color:white;
@@ -41,4 +54,34 @@ tr:nth-of-type(2n){
 
 .table{
   border:2px solid #5c5c5c;
+}
+
+input{
+  width:100%;
+  margin-bottom:15px;
+  border:1px solid #9c9c9c;
+  height:35px;
+}
+
+.input-group{
+  width:100%;
+ margin-bottom:15px !important;
+border-radius:5px;
+  height:35px;	  /* height:35px; */
+}
+
+
+
+.iconAndBackground{
+  color:#4c4c4c;
+
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:0px 10px;
+}
+
+.fa-graduation-cap{
+  width:16px;
 }
