@@ -2,14 +2,40 @@ import React from 'react';
 import GradeTable from './grade-table';
 import Header from './header';
 import GradeForm from './grade-form';
+
 export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.getAverageGrade = this.getAverageGrade.bind(this);
     this.addGrade = this.addGrade.bind(this);
+    this.deleteGrade = this.deleteGrade.bind(this);
+
     this.state = {
       grades: []
     };
+  }
+
+  deleteGrade(deleteId) {
+
+    fetch(`api/grades/${deleteId}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }
+    ).then(res => res.json())
+      .then(data => {
+        const deleteGrade = this.state.grades.slice();
+        const targetIndex = deleteGrade.findIndex(grade => grade.id === deleteId);
+        deleteGrade[targetIndex] = data;
+
+        deleteGrade.splice(targetIndex, 1);
+        this.setState({ grades: deleteGrade });
+      })
+      .catch(error =>
+        console.error('Error:', error)
+
+      );
   }
 
   componentDidMount() {
@@ -26,7 +52,7 @@ export default class App extends React.Component {
     fetch('./api/grades', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json; charset=utf-8'
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify(newGrade)
     })
@@ -51,28 +77,22 @@ export default class App extends React.Component {
     }
   }
 
+  noGrade() {
+    if (this.state.grades.length === 0) return 'reveal';
+    return 'hidden';
+  }
+
   render() {
-    if (this.state.grades.length === 0) {
-      return (
-        <div>
-          <div className="container extraPadding">
-            <Header average={this.getAverageGrade()}/>
-            <GradeTable grades={this.state.grades} />
-            <p>No grades recorded</p>
-          </div>
-        </div>
-      );
-    }
+    const noGrades = this.noGrade();
 
     return (
       <div>
         <div className="container extraPadding">
-
           <Header average={this.getAverageGrade()} />
-
           <div className="row">
             <div className="col-md-8">
-              <GradeTable grades={this.state.grades}/>
+              <GradeTable grades={this.state.grades} delete={this.deleteGrade}/>
+              <p className={noGrades}>No grades recorded</p>
             </div>
             <div className="col-md-4">
               <GradeForm addGrade={this.addGrade}/>

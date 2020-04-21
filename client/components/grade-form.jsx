@@ -53,25 +53,26 @@ export default class GradeForm extends React.Component {
         <div className="input-group">
           <div className="input-group-addon iconAndBackground">
             <i className="fa fa-user formIcon"></i>
-          </div><input type="text" className="form-control" value={this.state.name} onChange={this.handleChangeName} placeholder="Student Name" />
+          </div><input required type="text" className="form-control" value={this.state.name} onChange={this.handleChangeName} placeholder="Student Name" />
         </div>
 
         <div className="input-group">
           <div className="input-group-addon iconAndBackground">
             <i className="fa fa-list-alt formIcon"></i>
-          </div><input type="text" className="form-control" value={this.state.course} onChange={this.handleChangeCourse} placeholder="Student Course" />
+          </div><input required type="text" className="form-control" value={this.state.course} onChange={this.handleChangeCourse} placeholder="Student Course" />
         </div>
 
         <div className="input-group">
           <div className="input-group-addon iconAndBackground">
             <i className="fa fa-graduation-cap formIcon"></i>
-          </div><input type="text" className="form-control" value={this.state.grade} onChange={this.handleChangeGrade} placeholder="Student Grade" />
+          </div><input required type="number" className="form-control" value={this.state.grade} onChange={this.handleChangeGrade} placeholder="Student Grade" />
         </div>
         <div className="button-group">
           <button type="submit" name="add" className="btn btn-success addButton">Add</button>
           <button type="reset" name="cancel" onClick={this.resetForm} className="btn btn-outline-secondary">Cancel</button>
         </div>
       </form>
+
     );
   }
 }
