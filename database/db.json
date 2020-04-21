@@ -5,6 +5,18 @@
       "course": "Web Development",
       "grade": 100,
       "id": 1
+    },
+    {
+      "name": "Steven Tran",
+      "course": "Eating Muffins",
+      "grade": 75,
+      "id": 2
+    },
+    {
+      "name": "Chocolate Muffins",
+      "course": "Being Eaten",
+      "grade": 100,
+      "id": 3
     }
   ]
 }
