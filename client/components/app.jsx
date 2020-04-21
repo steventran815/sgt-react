@@ -7,6 +7,7 @@ export default class App extends React.Component {
     super(props);
     this.getAverageGrade = this.getAverageGrade.bind(this);
     this.addGrade = this.addGrade.bind(this);
+    this.deleteGrade = this.deleteGrade.bind(this);
     this.state = {
       grades: []
     };
@@ -51,31 +52,46 @@ export default class App extends React.Component {
     }
   }
 
-  render() {
-    if (this.state.grades.length === 0) {
-      return (
-        <div>
-          <div className="container extraPadding">
-            <Header average={this.getAverageGrade()}/>
-            <GradeTable grades={this.state.grades} />
-            <p>No grades recorded</p>
-          </div>
-        </div>
-      );
+  deleteGrade(deleteId) {
+    fetch(`api/grades/${deleteId}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
     }
+    ).then(res => res.json())
+      .then(() => {
+        const deleteGrade = this.state.grades.slice();
+        const targetIndex = deleteGrade.findIndex(grade => grade.id === deleteId);
+        deleteGrade.splice(targetIndex, 1);
+        this.setState({ grades: deleteGrade });
+      })
+      .catch(error =>
+        console.error('Error:', error)
+
+      );
+  }
+
+  noGrade() {
+    if (this.state.grades.length === 0) return 'reveal';
+    return 'hidden';
+  }
+
+  render() {
+    const noGrades = this.noGrade();
 
     return (
       <div>
         <div className="container extraPadding">
-
           <Header average={this.getAverageGrade()} />
 
           <div className="row">
             <div className="col-md-8">
-              <GradeTable grades={this.state.grades}/>
+              <GradeTable grades={this.state.grades} delete={this.deleteGrade} />
+              <p className={noGrades}>No grades recorded</p>
             </div>
             <div className="col-md-4">
-              <GradeForm addGrade={this.addGrade}/>
+              <GradeForm addGrade={this.addGrade} />
             </div>
           </div>
         </div>

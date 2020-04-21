@@ -1,28 +1,22 @@
 {
   "grades": [
     {
-      "id": 5,
-      "name": "Tim Berners-Lee",
+      "name": "Hello World",
       "course": "Web Development",
-      "grade": 100
+      "grade": 100,
+      "id": 1
     },
     {
-      "id": 12,
-      "name": "Scott Bowler",
-      "course": "Web Development",
-      "grade": 100
+      "name": "Steven Tran",
+      "course": "Eating Muffins",
+      "grade": 75,
+      "id": 2
     },
     {
-      "id": 32,
-      "name": "Tim Davis",
-      "course": "Web Development",
-      "grade": 50
-    },
-    {
-      "name": "Tony Stark",
-      "course": "Caring for Daughter",
-      "grade": 3000,
-      "id": 33
+      "name": "Chocolate Muffins",
+      "course": "Being Eaten",
+      "grade": 100,
+      "id": 3
     }
   ]
 }
