@@ -27,14 +27,11 @@ export default class App extends React.Component {
       .then(data => {
         const deleteGrade = this.state.grades.slice();
         const targetIndex = deleteGrade.findIndex(grade => grade.id === deleteId);
-        deleteGrade[targetIndex] = data;
-
         deleteGrade.splice(targetIndex, 1);
         this.setState({ grades: deleteGrade });
       })
       .catch(error =>
         console.error('Error:', error)
-
       );
   }
 

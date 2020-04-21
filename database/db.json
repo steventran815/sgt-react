@@ -1,3 +1,10 @@
 {
-  "grades": []
+  "grades": [
+    {
+      "name": "Hello World",
+      "course": "Web Development",
+      "grade": 100,
+      "id": 1
+    }
+  ]
 }
